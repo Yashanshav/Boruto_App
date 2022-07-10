@@ -6,7 +6,7 @@ import com.example.borutoapp.util.constants.HERO_DATABASE_TABLE
 
 @Entity(tableName = HERO_DATABASE_TABLE)
 data class Hero(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     val id: Int,
     val name: String,
     val image: String,
