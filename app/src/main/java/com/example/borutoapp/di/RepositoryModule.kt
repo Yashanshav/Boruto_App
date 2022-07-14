@@ -1,8 +1,12 @@
 package com.example.borutoapp.di
 
 import android.content.Context
-import com.example.borutoapp.data.pref.DataStoreOperationsImpl
+import com.example.borutoapp.data.repository.DataStoreOperationsImpl
+import com.example.borutoapp.data.repository.Repository
 import com.example.borutoapp.domain.repository.DataStoreOperations
+import com.example.borutoapp.domain.use_cases.UseCases
+import com.example.borutoapp.domain.use_cases.read_onboarding.ReadOnBoardingUseCase
+import com.example.borutoapp.domain.use_cases.save_onboarding.SaveOnBoardingUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +30,17 @@ object RepositoryModule {
         @ApplicationContext context: Context
     ): DataStoreOperations {
         return DataStoreOperationsImpl(context = context)
+    }
+
+    /*
+    this function will provide a single function to access the use cases in all the functions.
+     */
+    @Provides
+    @Singleton
+    fun provideUseCases(repository: Repository): UseCases {
+        return UseCases(
+            readOnBoardingUseCase = ReadOnBoardingUseCase(repository),
+            saveOnBoardingUseCase = SaveOnBoardingUseCase(repository)
+        )
     }
 }
