@@ -4,6 +4,6 @@ import com.example.borutoapp.domain.use_cases.read_onboarding.ReadOnBoardingUseC
 import com.example.borutoapp.domain.use_cases.save_onboarding.SaveOnBoardingUseCase
 
 data class UseCases (
-    private val readOnBoardingUseCase: ReadOnBoardingUseCase,
-    private val saveOnBoardingUseCase: SaveOnBoardingUseCase
+    val readOnBoardingUseCase: ReadOnBoardingUseCase,
+    val saveOnBoardingUseCase: SaveOnBoardingUseCase
         )
