@@ -1,5 +1,6 @@
 package com.example.borutoapp.presentation.screen.home
 
+import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -19,6 +20,7 @@ fun HomeScreen(
     navController: NavHostController,
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
+    Log.d("REQUEST MADE", "Home Screen Launched")
     val allHeroes = homeViewModel.getAllHeroes.collectAsLazyPagingItems()
 
     Scaffold (
@@ -26,6 +28,7 @@ fun HomeScreen(
             HomeTopBar(onSearchClicked = {})
         },
         content = {
+            Log.d("LIST CONTENT", "List Content method initiated")
             ListContent(heroes = allHeroes, navController = navController)
         }
     )

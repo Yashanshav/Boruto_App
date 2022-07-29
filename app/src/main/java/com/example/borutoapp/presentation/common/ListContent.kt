@@ -1,6 +1,7 @@
 package com.example.borutoapp.presentation.common
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
@@ -84,6 +85,7 @@ fun handlePagingResult(
                 false
             }
             error != null -> {
+                EmptyScreen(error = error)
                 false
             }
             else -> true
@@ -150,7 +152,7 @@ fun HeroItem(
                 )
 
                 Text(
-                    text = hero.name,
+                    text = hero.about,
                     color = Color.White.copy(alpha = ContentAlpha.medium),
                     fontSize = MaterialTheme.typography.subtitle1.fontSize,
                     maxLines = 3,
@@ -162,7 +164,7 @@ fun HeroItem(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RatingWidget(
-                        modifier = Modifier.padding(SMALL_PADDING),
+                        modifier = Modifier.padding(end = SMALL_PADDING),
                         rating = hero.rating
                     )
                     Text(

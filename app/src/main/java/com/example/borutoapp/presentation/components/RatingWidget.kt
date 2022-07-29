@@ -45,7 +45,7 @@ fun RatingWidget(
         modifier = Modifier,
         horizontalArrangement = Arrangement.spacedBy(spacedBetween)
     ) {
-        result["filledStar"]?.let {
+        result["filledStars"]?.let {
             repeat(it) {
                 FilledStar(starPath = starPath,
                     starPathBounds = starPathBounds,
@@ -53,7 +53,7 @@ fun RatingWidget(
             }
         }
 
-        result["halfFilledStar"]?.let {
+        result["halfFilledStars"]?.let {
             repeat(it) {
                 HalfFilledStar(starPath = starPath,
                     starPathBounds = starPathBounds,
@@ -61,7 +61,7 @@ fun RatingWidget(
             }
         }
 
-        result["emptyStar"]?.let {
+        result["emptyStars"]?.let {
             repeat(it) {
                 EmptyStar(starPath = starPath,
                     starPathBounds = starPathBounds,
@@ -69,12 +69,6 @@ fun RatingWidget(
             }
         }
     }
-
-    FilledStar(
-        starPath = starPath,
-        starPathBounds = starPathBounds,
-        scaleFactor = scaleFactor
-    )
 }
 
 @Composable
