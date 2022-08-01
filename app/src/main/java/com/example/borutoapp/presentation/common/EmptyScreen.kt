@@ -5,8 +5,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -15,34 +13,32 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.paging.LoadState
-import androidx.paging.compose.LazyPagingItems
 import com.example.borutoapp.R
 import com.example.borutoapp.ui.theme.DarkGray
 import com.example.borutoapp.ui.theme.LightGray
 import com.example.borutoapp.ui.theme.NETWORK_ERROR_ICON_HEIGHT
 import com.example.borutoapp.ui.theme.SMALL_PADDING
-import com.google.accompanist.swiperefresh.SwipeRefresh
-import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
 @Composable
 fun EmptyScreen(error: LoadState.Error) {
+    // remember helps to store variable in memory, it's jetpack compose way to do it.
     val message by remember {
-        mutableStateOf(parseErrorMessage(message = error.toString()))
+        mutableStateOf(parseErrorMessage(error = error))
     }
 
     val icon by remember {
         mutableStateOf(R.drawable.ic_network_error)
     }
 
+    // to change the appearance of image.
     var startAnimation by remember {
         mutableStateOf(false)
     }
@@ -92,18 +88,17 @@ fun EmptyContent(alphaAnim: Float, message: String, icon: Int) {
     }
 }
 
-fun parseErrorMessage(message: String): String {
-    return when {
-        message.contains("SocketTimeoutException") -> {
+fun parseErrorMessage(error: LoadState.Error): String {
+    return when (error.error) {
+        is SocketTimeoutException -> {
             "Server Unavailable."
         }
-        message.contains("ConnectTimeout") -> {
+        is ConnectException -> {
             "Internet Unavailable."
         }
         else -> {
             "Unknown error."
         }
-
     }
 }
 
