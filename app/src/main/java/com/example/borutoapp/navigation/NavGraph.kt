@@ -12,7 +12,7 @@ import com.example.borutoapp.presentation.screen.home.HomeScreen
 import com.example.borutoapp.presentation.screen.search.SearchScreen
 import com.example.borutoapp.presentation.screen.splash.SplashScreen
 import com.example.borutoapp.presentation.screen.welcome.WelcomeScreen
-import com.example.borutoapp.util.constants.DETAILS_ARGUMENTS_KEY
+import com.example.borutoapp.util.Constants.DETAILS_ARGUMENTS_KEY
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalCoilApi

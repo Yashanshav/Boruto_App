@@ -1,13 +1,11 @@
 package com.example.borutoapp.di
 
-import android.provider.MediaStore
 import androidx.paging.ExperimentalPagingApi
 import com.example.borutoapp.data.local.BorutoDatabase
 import com.example.borutoapp.data.remote.BorutoApi
 import com.example.borutoapp.data.repository.RemoteDataSourceImpl
-import com.example.borutoapp.domain.models.ApiResponse
 import com.example.borutoapp.domain.repository.RemoteDataSource
-import com.example.borutoapp.util.constants.BASE_URL
+import com.example.borutoapp.util.Constants.BASE_URL
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides

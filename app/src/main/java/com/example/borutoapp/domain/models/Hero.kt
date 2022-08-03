@@ -2,7 +2,7 @@ package com.example.borutoapp.domain.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.borutoapp.util.constants.HERO_DATABASE_TABLE
+import com.example.borutoapp.util.Constants.HERO_DATABASE_TABLE
 import kotlinx.serialization.Serializable
 
 @Serializable

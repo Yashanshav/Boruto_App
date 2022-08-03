@@ -24,10 +24,9 @@ import com.example.borutoapp.R
 import com.example.borutoapp.domain.models.OnBoardingPage
 import com.example.borutoapp.navigation.Screen
 import com.example.borutoapp.ui.theme.*
-import com.example.borutoapp.util.constants.LAST_BOARDING_PAGE
-import com.example.borutoapp.util.constants.ON_BOARDING_PAGE_COUNT
+import com.example.borutoapp.util.Constants.LAST_BOARDING_PAGE
+import com.example.borutoapp.util.Constants.ON_BOARDING_PAGE_COUNT
 import com.google.accompanist.pager.*
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @ExperimentalAnimationApi
 @ExperimentalPagerApi

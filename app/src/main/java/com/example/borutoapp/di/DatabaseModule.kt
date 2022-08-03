@@ -2,9 +2,8 @@ package com.example.borutoapp.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.borutoapp.data.local.BorutoDatabase
-import com.example.borutoapp.util.constants.BORUTO_DATABASE
+import com.example.borutoapp.util.Constants.BORUTO_DATABASE
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

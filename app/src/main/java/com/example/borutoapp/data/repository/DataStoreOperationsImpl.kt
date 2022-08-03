@@ -8,8 +8,8 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.borutoapp.domain.repository.DataStoreOperations
-import com.example.borutoapp.util.constants.PREFERENCES_KEY
-import com.example.borutoapp.util.constants.PREFERENCES_NAME
+import com.example.borutoapp.util.Constants.PREFERENCES_KEY
+import com.example.borutoapp.util.Constants.PREFERENCES_NAME
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

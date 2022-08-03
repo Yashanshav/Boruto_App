@@ -1,7 +1,6 @@
 package com.example.borutoapp.presentation.common
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
@@ -34,7 +33,7 @@ import com.example.borutoapp.navigation.Screen
 import com.example.borutoapp.presentation.components.RatingWidget
 import com.example.borutoapp.presentation.components.ShimmerEffect
 import com.example.borutoapp.ui.theme.*
-import com.example.borutoapp.util.constants.BASE_URL
+import com.example.borutoapp.util.Constants.BASE_URL
 
 @ExperimentalCoilApi
 @Composable
@@ -80,12 +79,16 @@ fun handlePagingResult(
         }
 
         return when {
+            heroes.itemCount < 1 -> {
+                EmptyScreen()
+                false
+            }
             loadState.refresh is LoadState.Loading -> {
                 ShimmerEffect()
                 false
             }
             error != null -> {
-                EmptyScreen(error = error)
+                EmptyScreen(error = error, heroes = heroes)
                 false
             }
             else -> true

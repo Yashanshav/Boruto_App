@@ -1,6 +1,7 @@
 package com.example.borutoapp.data.repository
 
 import androidx.paging.PagingData
+import androidx.paging.PagingSource
 import com.example.borutoapp.domain.models.Hero
 import com.example.borutoapp.domain.repository.DataStoreOperations
 import com.example.borutoapp.domain.repository.RemoteDataSource
@@ -14,6 +15,10 @@ class Repository @Inject constructor(
 
     fun getAllHeroes(): Flow<PagingData<Hero>> {
         return remoteDataSource.getAllHeroes()
+    }
+
+    fun searchAllHeroes(query: String): Flow<PagingData<Hero>> {
+        return remoteDataSource.searchHeroes(query = query)
     }
 
     suspend fun saveOnBoardingState(completed: Boolean) {
