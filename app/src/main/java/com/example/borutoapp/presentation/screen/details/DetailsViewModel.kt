@@ -11,16 +11,19 @@ import com.example.borutoapp.domain.use_cases.UseCases
 import com.example.borutoapp.util.Constants.DETAILS_ARGUMENTS_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class DetailsViewModel(
+class DetailsViewModel @Inject constructor(
     private val useCases: UseCases,
     savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
-    private val _selectedHero: MutableState<Hero?> = mutableStateOf(null)
-    val selectedHero: State<Hero?> = _selectedHero
+    private val _selectedHero: MutableStateFlow<Hero?> = MutableStateFlow(null)
+    val selectedHero: StateFlow<Hero?> = _selectedHero
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
