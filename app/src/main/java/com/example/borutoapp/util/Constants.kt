@@ -2,7 +2,7 @@ package com.example.borutoapp.util
 
 object Constants {
 
-    const val BASE_URL = "http://192.168.29.176:51716"
+    const val BASE_URL = "http://192.168.29.176:52737"
 
     const val DETAILS_ARGUMENTS_KEY = "heroId"
 
